@@ -28,4 +28,3 @@ def extract_weather_data(url:str) -> list:
 
     return data
 
-extract_weather_data(url)
