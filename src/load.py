@@ -1,0 +1,38 @@
+from sqlalchemy import create_engine
+from urllib.parse import quote_plus
+import os
+from pathlib import Path
+import logging
+from dotenv import load_dotenv
+import pandas as pd
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+env_path = Path(__file__).resolve().parent.parent/'config'/'.env'
+load_dotenv(dotenv_path=env_path)
+
+user = os.getenv('USER')
+password = os.getenv('PASSWORD')
+database = os.getenv('DATABASE')
+
+host = 'localhost'
+
+def get_engine():
+    return create_engine(
+        f"postgresql+psycopg2://{user}:{quote_plus(password)}@{host}/{database}"
+        )
+engine = get_engine()
+
+def load_weather_data(df, table_name:str):
+    df.to_sql(
+        table_name, 
+        con=engine, 
+        if_exists='append', 
+        index=False
+        )
+    
+    logging.info(f"Data loaded into table '{table_name}' successfully.")
+
+    df_check = pd.read_sql(f"SELECT * FROM {table_name}", con=engine)
+
+    logging.info(f"Data check - first 5 records from '{table_name}':\n{df_check.head()}")
