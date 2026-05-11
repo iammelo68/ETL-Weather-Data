@@ -1,0 +1,2 @@
+coord,weather,base,main,visibility,wind,clouds,dt,sys,timezone,id,name,cod
+"{'lon': -46.6361, 'lat': -23.5475}","{'id': 800, 'main': 'Clear', 'description': 'clear sky', 'icon': '01n'}",stations,"{'temp': 24.45, 'feels_like': 24.41, 'temp_min': 23.38, 'temp_max': 25.2, 'pressure': 1014, 'humidity': 56, 'sea_level': 1014, 'grnd_level': 925}",10000,"{'speed': 4.12, 'deg': 10}",{'all': 0},1778198238,"{'type': 1, 'id': 8394, 'country': 'BR', 'sunrise': 1778146174, 'sunset': 1778186196}",-10800,3448439,São Paulo,200
