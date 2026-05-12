@@ -63,7 +63,7 @@ def normalize_columns(df:pd.DataFrame) -> pd.DataFrame:
     logging.info("Columns normalized and merged into the main dataframe.")
     return df
 
-def drop_columns(columns_to_drop:list[str], df:pd.DataFrame) -> pd.Dataframe:
+def drop_columns(columns_to_drop:list[str], df:pd.DataFrame) -> pd.DataFrame:
     logging.info(f"Dropping columns: {columns_to_drop}")
     df = df.drop(columns=columns_to_drop)
     logging.info(f"Columns dropped. Remaining columns: {df.columns.tolist()}")

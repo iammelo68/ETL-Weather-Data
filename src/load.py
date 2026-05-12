@@ -15,7 +15,7 @@ user = os.getenv('USER')
 password = os.getenv('PASSWORD')
 database = os.getenv('DATABASE')
 
-host = 'localhost'
+host = 'host.docker.internal'
 
 def get_engine():
     return create_engine(
